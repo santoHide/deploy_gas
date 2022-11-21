@@ -1,5 +1,7 @@
-BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`
-if test $BRANCH_NAME = master -o $BRANCH_NAME = develop; then
-    echo "${BRANCH_NAME} への直コミットは禁止されています。"
-    exit 1
-fi
+#本番環境へ実行をpushするのを事前に防ぐ
+#BRANCH_NAME=`git symbolic-ref HEAD | sed -e 's:^refs/heads/::'`
+#if test $BRANCH_NAME = master -o $BRANCH_NAME = develop; then
+#    echo "${BRANCH_NAME} への直コミットは禁止されています。"
+#    exit 1
+#fi
+exit 1
