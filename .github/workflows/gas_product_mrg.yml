@@ -32,23 +32,23 @@ jobs:
       run: sudo npm i @google/clasp -g
 
     - name: generate clasprc.json _1
-      run: sudo sed -i -e "s/\"access_token\":\"dummy\"/\"access_token\":\"${ACCESS_TOKEN}\"/" clasprc.json
+      run: sudo sed -i -e "s/\"access_token\":\"secret\"/\"access_token\":\"${ACCESS_TOKEN}\"/" clasprc.json
 
     - name: generate clasprc.json _2
-      run: sudo sed -i -e "s/\"id_token\":\"dummy\"/\"id_token\":\"${ID_TOKEN}\"/" clasprc.json
+      run: sudo sed -i -e "s/\"id_token\":\"secret\"/\"id_token\":\"${ID_TOKEN}\"/" clasprc.json
 
     - name: generate clasprc.json _3
-      run: sudo sed -i -e "s/\"clientId\":\"dummy\"/\"clientId\":\"${CLIENT_ID}\"/" clasprc.json
+      run: sudo sed -i -e "s/\"clientId\":\"secret\"/\"clientId\":\"${CLIENT_ID}\"/" clasprc.json
 
     - name: generate clasprc.json _4
-      run: sudo sed -i -e "s/\"clientSecret\":\"dummy\"/\"clientSecret\":\"${CLIENT_SECRET}\"/" clasprc.json
+      run: sudo sed -i -e "s/\"clientSecret\":\"secret\"/\"clientSecret\":\"${CLIENT_SECRET}\"/" clasprc.json
 
     - name: generate clasprc.json _5
-      run: sudo sed -i -e "s@\"refresh_token\":\"dummy\"@\"refresh_token\":\"${REFRESH_TOKEN}\"@" clasprc.json
+      run: sudo sed -i -e "s@\"refresh_token\":\"secret\"@\"refresh_token\":\"${REFRESH_TOKEN}\"@" clasprc.json
 
     - name: generate .clasp.json
       run: |
-        sudo sed -i -e "s/\"scriptId\":\"dummy\"/\"scriptId\":\"${SCRIPT_ID}\"/" ./scripts/.clasp.json
+        sudo sed -i -e "s/\"scriptId\":\"secret\"/\"scriptId\":\"${SCRIPT_ID}\"/" ./scripts/.clasp.json
     - name: set clasprc
       run: sudo cat clasprc.json > ~/.clasprc.json
 
