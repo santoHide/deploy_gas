@@ -1,15 +1,15 @@
 {"token":
   {
-    "access_token":"secret",
+    "access_token":"dummy",
     "scope":"https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/logging.read https://www.googleapis.com/auth/script.webapp.deploy https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/script.projects https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/script.deployments https://www.googleapis.com/auth/drive.file",
     "token_type":"Bearer",
-    "id_token":"secret",
+    "id_token":"dummy",
     "expiry_date":1668156287785,
-    "refresh_token":"secret"
+    "refresh_token":"dummy"
   },
   "oauth2ClientSettings":{
-    "clientId":"secret",
-    "clientSecret":"secret",
+    "clientId":"dummy",
+    "clientSecret":"dumnmy",
     "redirectUri":"http://localhost"
   },
   "isLocalCreds":false
