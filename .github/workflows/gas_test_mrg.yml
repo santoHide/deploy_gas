@@ -1,9 +1,9 @@
 env:
-  ACCESS_TOKEN: ${{ secrets.STG_ACCESS_TOKEN }}
-  ID_TOKEN: ${{ secrets.STG_ID_TOKEN }}
-  REFRESH_TOKEN: ${{ secrets.STG_REFRESH_TOKEN }}
-  CLIENT_ID: ${{ secrets.STG_CLIENT_ID }}
-  CLIENT_SECRET: ${{ secrets.STG_CLIENT_SECRET }}
+  ACCESS_TOKEN: ${{ secrets.PRD_ACCESS_TOKEN }}
+  ID_TOKEN: ${{ secrets.PRD_ID_TOKEN }}
+  REFRESH_TOKEN: ${{ secrets.PRD_REFRESH_TOKEN }}
+  CLIENT_ID: ${{ secrets.PRD_CLIENT_ID }}
+  CLIENT_SECRET: ${{ secrets.PRD_CLIENT_SECRET }}
   SCRIPT_ID: ${{ secrets.STG_SCRIPT_ID }}
 on:
   push:
