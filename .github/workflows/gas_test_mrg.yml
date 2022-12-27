@@ -1,13 +1,14 @@
 name: deploy_gas
 on:
   push:
-    workflow_dispatch:
     branches:
       - master
     paths:
       - '**/**.js'
       - '**/**.tc'
       - '**/**.gs'
+    workflow_dispatch:
+
 jobs:
   merged-action:
     runs-on: ubuntu-latest
