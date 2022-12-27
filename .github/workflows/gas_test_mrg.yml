@@ -1,20 +1,13 @@
-env:
-  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-  ID_TOKEN: ${{ secrets.ID_TOKEN }}
-  REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-  CLIENT_ID: ${{ secrets.CLIENT_ID }}
-  CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-  SCRIPT_ID: ${{ secrets.STG_SCRIPT_ID }}
+name: deploy_gas
 on:
   push:
-
+    workflow_dispatch:
     branches:
       - master
     paths:
       - '**/**.js'
       - '**/**.tc'
       - '**/**.gs'
-    workflow_dispatch:
 jobs:
   merged-action:
     runs-on: ubuntu-latest
@@ -34,11 +27,6 @@ jobs:
 
     - name: clasp install
       run: sudo npm i @google/clasp -g
-
-    - name: push
-      run: |
-        cd ./scripts
-        sudo clasp push --force
 
     - name: Create clasprc.json
       run: |
