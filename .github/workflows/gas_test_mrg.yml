@@ -28,5 +28,4 @@ jobs:
 
     - name: deploy
       run: |
-        cd ./scripts
         clasp push
