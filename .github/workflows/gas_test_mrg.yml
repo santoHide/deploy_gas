@@ -2,7 +2,7 @@ name: deploy_gas
 on:
   workflow_dispatch:
   push:
-    - master
+    branches: [ master ]
 
 jobs:
   merged-action:
