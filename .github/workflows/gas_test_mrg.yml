@@ -7,6 +7,7 @@ env:
   SCRIPT_ID: ${{ secrets.STG_SCRIPT_ID }}
 on:
   push:
+
     branches:
       - master
     paths:
@@ -22,8 +23,8 @@ jobs:
 
     - name: Node Install
       run: |
-       sudo apt install nodejs
-       sudo apt install npm
+        sudo apt install nodejs
+        sudo apt install npm
 
     - name: Node Version
       run: |
