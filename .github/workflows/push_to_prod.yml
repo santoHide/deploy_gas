@@ -2,36 +2,36 @@ name: deploy_gas
 on:
   workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [develop]
 
 jobs:
   merged-action:
     runs-on: ubuntu-latest
     steps:
-    - name: pull
-      uses: actions/checkout@master
+      - name: pull
+        uses: actions/checkout@master
 
-    - name: Node Install
-      run: |
-        sudo apt install nodejs
-        sudo apt install npm
+      - name: Node Install
+        run: |
+          sudo apt install nodejs
+          sudo apt install npm
 
-    - name: Node Version
-      run: |
-        echo "Node $(node -v)"
-        echo "Npm $(npm -v)"
+      - name: Node Version
+        run: |
+          echo "Node $(node -v)"
+          echo "Npm $(npm -v)"
 
-    - name: clasp install
-      run: sudo npm i @google/clasp -g
+      - name: clasp install
+        run: sudo npm i @google/clasp -g
 
-    - name: Create clasp.json
-      run: |
-        echo \{\"scriptId\": \"${{ secrets.SCRIPT_ID }}\",\"rootDir\":\"./scripts\" \} > ~/.clasp.json
+      - name: Create clasp.json
+        run: |
+          echo \{\"scriptId\": \"${{ secrets.SCRIPT_ID_DEV }}\",\"rootDir\":\"./scripts\" \} > ~/.clasp.json
 
-    - name: Create clasprc.json
-      run: |
-        echo \{\"token\":\{\"access_token\":\"${{ secrets.ACCESS_TOKEN}}\",\"scope\":\"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/script.projects https://www.googleapis.com/auth/script.webapp.deploy https://www.googleapis.com/auth/logging.read openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/script.deployments https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/cloud-platform\",\"token_type\":\"Bearer\",\"id_token\":\"${{ secrets.ID_TOKEN }}\",\"expiry_date\":1620870307822,\"refresh_token\":\"${{ secrets.REFRESH_TOKEN }}\"\},\"oauth2ClientSettings\":\{\"clientId\":\"${{ secrets.CLIENT_ID }}\",\"clientSecret\":\"${{ secrets.CLIENT_SECRET }}\",\"redirectUri\":\"http://localhost\"\},\"isLocalCreds\":false\} > ~/.clasprc.json
+      - name: Create clasprc.json
+        run: |
+          echo \{\"token\":\{\"access_token\":\"${{ secrets.ACCESS_TOKEN_DEV}}\",\"scope\":\"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/script.projects https://www.googleapis.com/auth/script.webapp.deploy https://www.googleapis.com/auth/logging.read openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/script.deployments https://www.googleapis.com/auth/service.management https://www.googleapis.com/auth/cloud-platform\",\"token_type\":\"Bearer\",\"id_token\":\"${{ secrets.ID_TOKEN_DEV }}\",\"expiry_date\":1620870307822,\"refresh_token\":\"${{ secrets.REFRESH_TOKEN_DEV }}\"\},\"oauth2ClientSettings\":\{\"clientId\":\"${{ secrets.CLIENT_ID_DEV }}\",\"clientSecret\":\"${{ secrets.CLIENT_SECRET_DEV }}\",\"redirectUri\":\"http://localhost\"\},\"isLocalCreds\":false\} > ~/.clasprc.json
 
-    - name: deploy
-      run: |
-        clasp push
+      - name: deploy
+        run: |
+          clasp push
